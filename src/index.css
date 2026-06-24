@@ -1,0 +1,340 @@
+.navbar-brand{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-weight:500;
+}
+
+@media (max-width: 540px){
+  .loginPageRow{
+    display: flex;
+    flex-direction: column;
+  }
+  .homeLoginCard{
+    width:95%;
+    box-shadow: 2px 2px 13px #ccc;
+    margin: 1rem 0rem;
+  }
+  .loginCardCol{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+  }
+  .homePageIntro{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    text-align: center;
+    position: absolute;
+    align-items: center;
+    top: 12rem;
+  }
+  .homeBgSetting{
+    background-image: url('/src/assets/bgHome10.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+}
+
+@media (min-width: 765px){
+  .homeLoginCard{
+    width:70%;
+    box-shadow: 2px 2px 13px #ccc;
+    min-height: 75%;
+  }
+  .loginCardCol{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+  }
+  .homePageIntro{
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    text-align: center;
+    align-items: center;
+  }
+  .homeBgSetting{
+    background-image: url('/src/assets/bgHome10.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (min-width: 1024px) and (height <= 1000px){
+  .loginPageRow{
+    display: flex;
+    flex-direction: row;
+  }
+  .loginCardCol{
+    width: 50%;
+  }
+  .homeLoginCard{
+    width:70%;
+    box-shadow: 2px 2px 13px #ccc;
+    min-height: 50%;
+  }
+  .homeBgSetting{
+    background-image: url('/src/assets/bgHome10.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 89vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 50%;
+  }
+}
+
+.navbarItems{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.albumCardRow{
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+}
+
+.albumCoverImage{
+  overflow: hidden;
+  height: 161px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.albumDetailCoverImg{
+  width: 100%;
+  height: 100%;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+/* upload image modal */
+
+.uploadImageInput{
+  width: 100%;
+  background-color: #f5f7ff;
+  border: dashed gray 1px;
+  border-radius: 5px;
+}
+
+/* Modal Body */
+.modal-body label{
+  margin: 7px 0px;
+}
+
+.imgUploadModalContent {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.imgUploadModalContent form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-height: 0;
+}
+
+.imgUploadModalBody {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Album Details & Image Card*/
+
+.ImageCardRow{
+ display: grid;
+ grid-template-columns: repeat(4, 1fr);
+}
+
+/* Image preview modal */
+
+@media (max-width: 540px){
+  .carousel-item {
+    height: 50vh;
+  }
+  .imgPreviewContent{
+    font-size: 0.8rem;
+  }
+  .commentDate{
+    margin-left: 0.8rem;
+  }
+  .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+  }
+  .imgPreviewRow{
+    display: flex;
+    flex-direction: column;
+  }
+  .imgPreviewCol{
+    width: 100%;
+  }
+}
+
+
+@media (min-width: 765px){
+  .commentDate{
+    margin-left: 1.5rem;
+  }
+  .imgPreviewContent{
+    font-size: 1rem;
+  }
+  .carousel-item {
+    height: 40vh;
+  }
+  .imgPreviewRow{
+    display: flex;
+    flex-direction: column;
+  }
+  .imgPreviewCol{
+    width: 100%;
+  }
+  .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+  }
+}
+
+@media (min-width: 1024px) and (height <= 800px){
+  .imgPreviewModal{
+    max-width: 80vw !important;
+  }
+  .carousel-item {
+    height: 75vh;
+  }
+  .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+  }
+  .imgPreviewBody{
+    padding: 0px
+  }
+  .imgPreviewRow{
+    display: flex;
+    flex-direction: row;
+  }
+  .imgPreviewInfoCol{
+    width: 50%;
+  }
+  .imgPreviewCol{
+    width: 50%
+  }
+}
+
+@media (min-width: 1200px){
+  .imgPreviewInfoCol{
+    width: 40%;
+  }
+  .imgPreviewCol{
+    width: 60%
+  }
+}
+
+.makeFavIcon {
+  position: absolute;
+  top: 16px;       /* Distance from the top of the card */
+  right: 16px;      /* Distance from the right of the card */
+  z-index: 10;
+}
+
+/* fiter select icon */
+
+.select-container {
+  position: relative;
+  display: inline-block;
+  width: 170px;
+}
+
+/* Push the text to the right to leave space for the icon */
+.select-container select {
+  width: 100%;
+  padding: 10px 10px 10px 35px; /* Large left padding */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Absolute position centers the icon on the left side */
+.select-container .select-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none; /* Allows clicks to pass through to the dropdown */
+  z-index: 1;
+}
+
+
+/* shared badge position setting */
+
+.makeSharedBadge {
+  position: absolute;
+  top: 16px;       /* Distance from the top of the card */
+  right: 16px;      /* Distance from the right of the card */
+  z-index: 10;
+}
+
+/* sticky header */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  padding-bottom: 5px;
+}
+
+/* albumDetails page */
+
+@media (min-width: 340px){
+  .detailsMainCard{
+    display: flex;
+    flex-direction: column;
+  }
+  .mainCardInternal{
+    display: flex;
+    flex-direction: column;
+  }
+  .albumDetailNav{
+    position: sticky;
+    top: 0;
+    min-height: 75px; /* Explicit height is crucial for stacking */
+    z-index: 100; /* Keeps it on top of other content */
+    color: white;
+  }
+}
+  
+@media (min-width: 1024px){
+  .detailsMainCard{
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 1200px){
+  .mainCardInternal{
+    display: flex;
+    flex-direction: row;
+  }
+}
+

@@ -10,10 +10,14 @@ const SharedAlbums = () => {
     const {data: albumData} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums`)
     const {data: userData} = useFetch(`${import.meta.env.VITE_API_URL}/user/details`)
 
-    const sharedAlbumData = albumData?.filter(album => album.ownerId !== userData?._id && album.sharedUsers.includes(userData?.email))
+    const sharedAlbumData = albumData?.filter(album => album.ownerId !== userData?._id && album.sharedUsers.includes(userData?.email)) || []
     const [sharedAlbumFilterValue, setAlbumFilterValue] = useState("")
     const [sortedAlbums, setSortedAlbums] = useState([])
     const [searchedData, setSearchedData] = useState([])
+
+    useEffect(() => {
+        setSearchedData(sharedAlbumData)
+    },[sharedAlbumData])
 
     useEffect(() => {
         let filteredAlbums = [...searchedData]
@@ -29,7 +33,7 @@ const SharedAlbums = () => {
         }
 
         setSortedAlbums(filteredAlbums)
-    },[albumData, sharedAlbumFilterValue, userData, searchedData])
+    },[sharedAlbumFilterValue, searchedData])
 
     return (
         <div>

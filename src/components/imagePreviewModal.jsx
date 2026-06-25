@@ -76,6 +76,12 @@ const ImagePreview = ({id, index, focus, onSuccess, imageData}) => {
 
         return currUserDetails;
     }
+
+    function userCommented(commentUserId){
+        const commentedUserDetails = allUsers?.find(user => user._id === commentUserId)
+
+        return commentedUserDetails
+    }
     
     const currImage = reorderedImages[currentSlide]
 
@@ -231,9 +237,9 @@ const ImagePreview = ({id, index, focus, onSuccess, imageData}) => {
                                 currImage?.comments.map(comment => (
                                     <div className="pe-3">
                                     <div className="d-flex align-items-center" style={{fontSize: "0.85rem"}}>
-                                        <span><img src={findUploadDetails(currImage)?.userPic} className="rounded-circle me-2" alt="uploader Pic" referrerPolicy="no-referrer" style={{height: "35px", width: "35px"}}/></span>
+                                        <span><img src={userCommented(comment.user)?.userPic} className="rounded-circle me-2" alt="uploader Pic" referrerPolicy="no-referrer" style={{height: "35px", width: "35px"}}/></span>
                                         <div>
-                                            <div><span className="text-dark"><strong>{findUploadDetails(currImage)?.name}</strong></span>  <span className="commentDate">{new Date(comment.createdAt).toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric"})}</span></div>
+                                            <div><span className="text-dark"><strong>{userCommented(comment.user)?.name}</strong></span>  <span className="commentDate">{new Date(comment.createdAt).toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric"})}</span></div>
                                             <span className="text-dark">{comment.text}</span>
                                         </div>
                                     </div>

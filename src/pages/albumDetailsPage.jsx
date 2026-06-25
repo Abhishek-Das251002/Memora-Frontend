@@ -68,6 +68,8 @@ const AlbumDetails = () => {
             <ShareAlbum albumToShare={currAlbum}/>
             <ImageUpload id={albumId} onSuccess={refetch}/>
             <ImagePreview id={albumId} imageData={imageData} index={activeIndex} focus={shouldFocusRef} onSuccess={refetch}/>
+            {albumData.length !== 0 && userData.length !==0 && imageData.length !==0
+            ?
             <div>
                 <div className="albumDetailNav">
                     <Navbar page="albumDetails" setSearchedData={setSearchedData} data={imageData}/>
@@ -144,6 +146,9 @@ const AlbumDetails = () => {
                     </div>
                 </div>
             </div>
+            :
+            <p className="text-center mt-5 fs-5 text-secondary">Loading...</p>
+            }
         </div>
     )
 }

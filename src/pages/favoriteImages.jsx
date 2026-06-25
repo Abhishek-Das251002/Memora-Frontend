@@ -32,7 +32,7 @@ const Favorites = () => {
     console.log("albumId on fav Page", currAlbumId)
     return (
         <div>
-            {favImages.length !== 0 
+            {allUserAlbums.length !== 0 && allUserImages.length !== 0 && userData.length !== 0
             ?
             <>
             <ImagePreview id={currAlbumId} imageData={favImages} index={activeIndex} focus={shouldFocusRef} onSuccess={refetch}/>

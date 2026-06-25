@@ -33,7 +33,7 @@ const SharedAlbums = () => {
 
     return (
         <div>
-            {albumData.length !== 0
+            {albumData.length !== 0 && userData.length !== 0
             ?
             <div>
                 <div className="sticky-header">

@@ -14,6 +14,7 @@ const UpdateDescription = ({description, albumId, onSuccess}) => {
             const updatedDes = await axios.post(`${import.meta.env.VITE_API_URL}/user/albums/${albumId}`, {description: des}, {withCredentials: true})
 
             if(updatedDes){
+                setNewDes("")
                 toast.success("Description updated successfully.")
                 onSuccess()
             }

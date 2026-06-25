@@ -4,7 +4,7 @@ import useFetch from "../utils/fetchDetails";
 import AlbumCard from "../components/albumCard";
 import NewAlbumModal from "../components/createNewAlbumModal";
 import UpdateDescription from "../components/updateDesModal";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 // #3d61ff → slightly royal/premium
 const Dashboard = () => {
@@ -13,6 +13,10 @@ const Dashboard = () => {
     const [currAlbumIdToChangeDes, setAlbumIdForDes] = useState(null)
     const [searchedData, setSearchedData] = useState([])
 
+    useEffect(() => {
+        setSearchedData(albumData)
+    },[albumData])
+    
     return (
         <div>
             <NewAlbumModal onSuccess={refetch}/>

@@ -93,7 +93,7 @@ const AlbumDetails = () => {
                             <p className="card-text text-secondary mb-0">{currAlbum.description}</p>
                             <div className="row text-secondary">
                                 <span className="d-flex align-items-center justify-content-md-center justify-content-lg-start col-6 col-md-4 col-lg-3 col-xl-5 pt-2 pe-lg-0"><ImageIcon size={15} className="me-1"/>{imageData.length > 1 ? `${imageData.length} images`: `${imageData.length} image`}</span>
-                                <span className="d-flex align-items-center justify-content-md-center justify-content-lg-start col-6 col-md-4 col-lg-3 col-xl-5 pt-2 px-lg-0 px-xl-0"><User2 size={15} className="me-1"/>{currAlbum.ownerId === userData._id ? "created by you": "created by others"}</span>
+                                <span className="d-flex align-items-center justify-content-md-center justify-content-lg-start col-6 col-md-4 col-lg-3 col-xl-5 pt-2 px-0"><User2 size={15} className="me-1"/>{currAlbum.ownerId === userData._id ? "created by you": "created by others"}</span>
                                 <span className="d-flex align-items-center justify-content-md-center justify-content-lg-start col-6 col-md-4 col-lg-3 col-xl-5 pt-2" px-lg-0><Calendar size={15} className="me-1"/>{new Date(currAlbum.createdAt).toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric"})}</span>
                             </div>
                         </div>

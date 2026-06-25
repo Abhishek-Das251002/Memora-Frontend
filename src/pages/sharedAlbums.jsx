@@ -7,8 +7,8 @@ import { useEffect, useState } from "react";
 
 
 const SharedAlbums = () => {
-    const {data: albumData} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums`)
-    const {data: userData} = useFetch(`${import.meta.env.VITE_API_URL}/user/details`)
+    const {data: albumData, loading: albumDataLoading} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums`)
+    const {data: userData, loading: userDataLoading} = useFetch(`${import.meta.env.VITE_API_URL}/user/details`)
 
     const sharedAlbumData = albumData?.filter(album => album.ownerId !== userData?._id && album.sharedUsers.includes(userData?.email)) || []
     const [sharedAlbumFilterValue, setAlbumFilterValue] = useState("")
@@ -34,6 +34,11 @@ const SharedAlbums = () => {
     return (
         <div>
             <div>
+                {albumDataLoading && userDataLoading
+                ?
+                <p className="text-secondary text-center mt-5">Loading...</p>
+                :
+                <>
                 <div className="sticky-header">
                     <Navbar page="sharedAlbums" setSearchedData={setSearchedData} data={sharedAlbumData}/>
                     <div className="container">
@@ -67,6 +72,8 @@ const SharedAlbums = () => {
                         }
                     </div>
                 </div>
+                </>
+                }
             </div>
         </div>
     )

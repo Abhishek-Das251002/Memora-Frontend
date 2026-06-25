@@ -58,7 +58,7 @@ const ImageUpload = ({id, onSuccess}) => {
                 <div className="modal-body imgUploadModalBody">
                     <div className="uploadImageInput text-center pt-4 text-secondary">
                         <CloudUpload size={45} style={{color: "#3d61ff"}}/><br/>
-                        <input type="file" className="btn btn mt-3" style={{borderColor: "#3d61ff", color: "#3d61ff"}} onChange={(e) => setImage(e.target.files[0])} required/>
+                        <input type="file" className="btn btn mt-3 w-75" style={{borderColor: "#3d61ff", color: "#3d61ff"}} onChange={(e) => setImage(e.target.files[0])} required/>
                         <p className="mt-2" style={{fontSize: "0.85rem"}}>JPG, JPEG, PNG, WEBP up to 5MB</p>
                     </div>
                     <label>Name:</label>
@@ -70,8 +70,8 @@ const ImageUpload = ({id, onSuccess}) => {
                         </button>
                     ))}
                     <div className="row"style={{width: "100%", margin: "0px"}}>
-                        <input type="text" className="col-9 py-1" placeholder="Add more tags..." style={{border: "1px solid #6c757d",borderTopLeftRadius: "5px", borderBottomLeftRadius: "5px", outline: "none"}} value={currTag} onChange={(e) => setCurrTag(e.target.value)}/>
-                        <button className="col-3" type="button" style={{background: "#3d61ff", color: "#fff",border: "1px solid #3d61ff", borderTopRightRadius: "5px", borderBottomRightRadius: "5px"}} onClick={() => {setTags([...tags, currTag]); setCurrTag("")}}>Add Tag</button>
+                        <input type="text" className="col-xl-9 col-md-9 col-7 py-1" placeholder="Add more tags..." style={{border: "1px solid #6c757d",borderTopLeftRadius: "5px", borderBottomLeftRadius: "5px", outline: "none"}} value={currTag} onChange={(e) => setCurrTag(e.target.value)}/>
+                        <button className="col-xl-3 col-md-3 col-5" type="button" style={{background: "#3d61ff", color: "#fff",border: "1px solid #3d61ff", borderTopRightRadius: "5px", borderBottomRightRadius: "5px"}} onClick={() => {setTags([...tags, currTag]); setCurrTag("")}}>Add Tag</button>
                     </div>
                     <label className="my-2">People in image:</label><br />
                     {people.map(person => (
@@ -80,8 +80,8 @@ const ImageUpload = ({id, onSuccess}) => {
                         </button>
                     ))}
                     <div className="row"style={{width: "100%", margin: "0px"}}>
-                        <input type="text" className="col-9 py-1" placeholder="Add person..." style={{border: "1px solid #6c757d",borderTopLeftRadius: "5px", borderBottomLeftRadius: "5px", outline: "none"}} value={currPerson} onChange={(e) => setCurrPerson(e.target.value)}/>
-                        <button className="col-3" type="button" style={{background: "#3d61ff", color: "#fff",border: "1px solid #3d61ff", borderTopRightRadius: "5px", borderBottomRightRadius: "5px"}} onClick={() => {setPeople([...people, currPerson]); setCurrPerson("")}}>Add Person</button>
+                        <input type="text" className="col-xl-9 col-md-9 col-7 py-1" placeholder="Add person..." style={{border: "1px solid #6c757d",borderTopLeftRadius: "5px", borderBottomLeftRadius: "5px", outline: "none"}} value={currPerson} onChange={(e) => setCurrPerson(e.target.value)}/>
+                        <button className="col-xl-3 col-md-3 col-5" type="button" style={{background: "#3d61ff", color: "#fff",border: "1px solid #3d61ff", borderTopRightRadius: "5px", borderBottomRightRadius: "5px"}} onClick={() => {setPeople([...people, currPerson]); setCurrPerson("")}}>Add Person</button>
                     </div>
                     <span className="d-flex align-items-center mt-3">
                         <input type="checkbox" className="me-1" checked={isFav} onChange={(e) => setFav(e.target.checked)}/> Mark as favorite

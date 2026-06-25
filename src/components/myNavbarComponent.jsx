@@ -102,7 +102,20 @@ const Navbar = ({page, setSearchedData, data}) => {
                         </div>
                     </li>
                     :
-                    page !== "login" && isMobileScreen && !isLargeScreen
+                    page !== "login" && isMobileScreen
+                    ?
+                    <li class="nav-item dropdown">
+                    <span class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <UserCircle size={25}/> User Info
+                    </span>
+                    <ul class="dropdown-menu">
+                        <li className="dropdown-item">{userData?.name}</li>
+                        <li className="dropdown-item">{userData?.email}</li>
+                        <li className="dropdown-item" style={{cursor: "pointer"}} onClick={handleLogout}><LogOut size={15} className="me-2"/>Logout</li>
+                    </ul>
+                    </li>
+                    :
+                    page !== "login" && !isMobileScreen && !isLargeScreen
                     ?
                     <li class="nav-item dropdown">
                     <span class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">

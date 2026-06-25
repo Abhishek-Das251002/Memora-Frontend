@@ -20,6 +20,10 @@ const Favorites = () => {
     const [searchedData, setSearchedData] = useState([])
 
     useEffect(() => {
+        setSearchedData(allUserImages)
+    },[allUserImages])
+
+    useEffect(() => {
         let filteredData = [...searchedData]
 
         if(albumFilterValue){

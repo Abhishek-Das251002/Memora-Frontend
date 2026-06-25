@@ -31,6 +31,10 @@ const AlbumDetails = () => {
     const [searchedData, setSearchedData] = useState([])
 
     useEffect(() => {
+        setSearchedData(imageData)
+    },[imageData])
+
+    useEffect(() => {
             let dataToFilter = [...searchedData];
 
             imgFilterValue !== "all" 
@@ -58,10 +62,6 @@ const AlbumDetails = () => {
 
         setSortedImageData(dataToSort)
     },[filteredImageData, sortValue, searchedData])
-
-    console.log("favorites",filteredImageData)
-    console.log("recent/old", sortedImageData)
-    console.log("searchedData", searchedData)
 
     return (
         <div>

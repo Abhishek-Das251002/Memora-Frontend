@@ -8,7 +8,7 @@ import { useState } from "react";
 
 // #3d61ff → slightly royal/premium
 const Dashboard = () => {
-    const {data: albumData,loading: albumLoading, error: albumError, refetch} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums`)
+    const {data: albumData, error: albumError, refetch} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums`)
     const [currAlbumDes, setCurrAlbumDes] = useState("")
     const [currAlbumIdToChangeDes, setAlbumIdForDes] = useState(null)
     const [searchedData, setSearchedData] = useState([])
@@ -16,6 +16,9 @@ const Dashboard = () => {
     return (
         <div>
             <NewAlbumModal onSuccess={refetch}/>
+            {albumData.length !== 0
+            ?
+            <>
             <UpdateDescription description={currAlbumDes} albumId={currAlbumIdToChangeDes} onSuccess={refetch}/>
             <div>
                 <div className="sticky-header">
@@ -38,6 +41,10 @@ const Dashboard = () => {
                     </div>
                 </div>  
             </div>
+            </>
+            :
+            <p className="text-center text-secondary mt-5 fs-5">Loading...</p>
+            }
         </div>  
     )
 }

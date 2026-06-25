@@ -13,6 +13,10 @@ const Dashboard = () => {
     const [currAlbumIdToChangeDes, setAlbumIdForDes] = useState(null)
     const [searchedData, setSearchedData] = useState([])
 
+    useEffect(() => {
+        setSearchedData(albumData)
+    },[albumData])
+    
     return (
         <div>
             <NewAlbumModal onSuccess={refetch}/>

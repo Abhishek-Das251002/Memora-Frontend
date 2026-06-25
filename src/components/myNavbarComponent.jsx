@@ -37,7 +37,7 @@ const Navbar = ({page, setSearchedData, data}) => {
             searchData = data?.filter(image => (image.name.toLowerCase().includes(searchValue.toLowerCase()) || image.person.map(person => person.toLowerCase()).includes(searchValue.toLowerCase()) || image.tags.map(tag => tag.toLowerCase()).includes(searchValue.toLowerCase())))
         }
         setSearchedData(searchData)
-    },[searchValue, userData, data])
+    },[searchValue, userData])
 
     const [isMobileScreen, setScreen] = useState(isMobile.matches)
     const [isLargeScreen, setLargeScreen] = useState(isDesktop.matches)

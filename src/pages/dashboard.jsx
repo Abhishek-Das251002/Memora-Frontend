@@ -16,13 +16,10 @@ const Dashboard = () => {
     useEffect(() => {
         setSearchedData(albumData)
     },[albumData])
-    
+
     return (
         <div>
             <NewAlbumModal onSuccess={refetch}/>
-            {albumData.length !== 0
-            ?
-            <>
             <UpdateDescription description={currAlbumDes} albumId={currAlbumIdToChangeDes} onSuccess={refetch}/>
             <div>
                 <div className="sticky-header">
@@ -45,10 +42,6 @@ const Dashboard = () => {
                     </div>
                 </div>  
             </div>
-            </>
-            :
-            <p className="text-center text-secondary mt-5 fs-5">Loading...</p>
-            }
         </div>  
     )
 }

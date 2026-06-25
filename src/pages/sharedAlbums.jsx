@@ -33,8 +33,6 @@ const SharedAlbums = () => {
 
     return (
         <div>
-            {albumData.length !== 0 && userData.length !== 0
-            ?
             <div>
                 <div className="sticky-header">
                     <Navbar page="sharedAlbums" setSearchedData={setSearchedData} data={sharedAlbumData}/>
@@ -70,9 +68,6 @@ const SharedAlbums = () => {
                     </div>
                 </div>
             </div>
-            :
-            <p className="text-center mt-5 fs-5 text-secondary">Loading...</p>
-            }
         </div>
     )
 }

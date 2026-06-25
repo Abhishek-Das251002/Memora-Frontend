@@ -36,9 +36,6 @@ const Favorites = () => {
     console.log("albumId on fav Page", currAlbumId)
     return (
         <div>
-            {allUserAlbums.length !== 0 && allUserImages.length !== 0 && userData.length !== 0
-            ?
-            <>
             <ImagePreview id={currAlbumId} imageData={favImages} index={activeIndex} focus={shouldFocusRef} onSuccess={refetch}/>
             <div>
                 <div className="sticky-header">
@@ -75,10 +72,6 @@ const Favorites = () => {
                     </div>
                 </div>
             </div>
-            </>
-            :
-            <p className="text-center mt-5 fs-5 text-secondary">Loading...</p>
-            }
         </div>
     )
 }

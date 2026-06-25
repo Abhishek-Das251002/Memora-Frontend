@@ -58,7 +58,7 @@ const ImageUpload = ({id, onSuccess}) => {
                 <div className="modal-body imgUploadModalBody">
                     <div className="uploadImageInput text-center pt-4 text-secondary">
                         <CloudUpload size={45} style={{color: "#3d61ff"}}/><br/>
-                        <input type="file" className="btn btn mt-3 w-75" style={{borderColor: "#3d61ff", color: "#3d61ff"}} onChange={(e) => setImage(e.target.files[0])} required/>
+                        <input type="file" className="btn btn mt-3" style={{borderColor: "#3d61ff", color: "#3d61ff", width: "85%"}} onChange={(e) => setImage(e.target.files[0])} required/>
                         <p className="mt-2" style={{fontSize: "0.85rem"}}>JPG, JPEG, PNG, WEBP up to 5MB</p>
                     </div>
                     <label>Name:</label>

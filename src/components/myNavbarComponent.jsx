@@ -102,7 +102,7 @@ const Navbar = ({page, setSearchedData, data}) => {
                         </div>
                     </li>
                     :
-                    page !== "login" && isMobileScreen
+                    page !== "login" && isMobileScreen && !isLargeScreen
                     ?
                     <li class="nav-item dropdown">
                     <span class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">

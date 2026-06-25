@@ -141,7 +141,7 @@ const AlbumDetails = () => {
                             <ImageCard currImage={img} albumId={albumId} currIndex={index} setActiveIndex={setActiveIndex} onSuccess={refetch} focus={shouldFocusRef}/>
                         ))
                         :
-                        <p className="text-center text-secondary mt-4">Images not found. Please upload images to the album.</p>
+                        <p className="text-center text-secondary mt-4">{imgFilterValue === "all"? "Images not found. Please upload images to the album." : "Images not found. please mark images favorite."}</p>
                         }
                     </div>
                 </div>

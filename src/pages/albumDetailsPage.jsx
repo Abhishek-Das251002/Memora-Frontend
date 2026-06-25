@@ -17,9 +17,9 @@ import ImagePreview from "../components/imagePreviewModal";
 const AlbumDetails = () => {
     const {albumId} = useParams()
 
-    const {data: imageData, refetch} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums/${albumId}/images`)
-    const {data: albumData} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums`)
-    const {data: userData} = useFetch(`${import.meta.env.VITE_API_URL}/user/details`)
+    const {data: imageData,loading: imageDataLoading, refetch} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums/${albumId}/images`)
+    const {data: albumData, loading: albumDataLoading} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums`)
+    const {data: userData, loading: userDataLoading} = useFetch(`${import.meta.env.VITE_API_URL}/user/details`)
 
     const currAlbum = albumData?.find(album => album._id === albumId)
     const [imgFilterValue, setImgFilterValue] = useState("all")
@@ -68,6 +68,10 @@ const AlbumDetails = () => {
             <ShareAlbum albumToShare={currAlbum}/>
             <ImageUpload id={albumId} onSuccess={refetch}/>
             <ImagePreview id={albumId} imageData={imageData} index={activeIndex} focus={shouldFocusRef} onSuccess={refetch}/>
+            {imageDataLoading && userDataLoading && albumDataLoading
+            ?
+            <p className="text-secondary text-center mt-5">Loading...</p>
+            :
             <div>
                 <div className="albumDetailNav">
                     <Navbar page="albumDetails" setSearchedData={setSearchedData} data={imageData}/>
@@ -144,6 +148,7 @@ const AlbumDetails = () => {
                     </div>
                 </div>
             </div>
+            }
         </div>
     )
 }

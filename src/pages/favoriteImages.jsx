@@ -7,9 +7,9 @@ import { useEffect, useState, useRef } from "react"
 import ImagePreview from "../components/imagePreviewModal"
 
 const Favorites = () => {
-    const {data: allUserImages, refetch} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums/images`)
-    const {data: userData} = useFetch(`${import.meta.env.VITE_API_URL}/user/details`)
-    const {data: allUserAlbums} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums`)
+    const {data: allUserImages,loading: allUserImagesLoading, refetch} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums/images`)
+    const {data: userData, loading: userDataLoading} = useFetch(`${import.meta.env.VITE_API_URL}/user/details`)
+    const {data: allUserAlbums, loading: allUserAlbumsLoading} = useFetch(`${import.meta.env.VITE_API_URL}/user/albums`)
 
     const favImages = allUserImages?.filter(img => img.isFavorite.includes(userData.email))
     const [albumFilterValue, setAlbumFilterValue] = useState("")
@@ -37,6 +37,10 @@ const Favorites = () => {
     return (
         <div>
             <ImagePreview id={currAlbumId} imageData={favImages} index={activeIndex} focus={shouldFocusRef} onSuccess={refetch}/>
+            {allUserAlbumsLoading && allUserImagesLoading && userDataLoading
+            ?
+            <p className="text-secondary text-center mt-5">Loading...</p>
+            :
             <div>
                 <div className="sticky-header">
                     <Navbar page="favoriteImages" setSearchedData={setSearchedData} data={favImages}/>
@@ -72,6 +76,7 @@ const Favorites = () => {
                     </div>
                 </div>
             </div>
+            }
         </div>
     )
 }

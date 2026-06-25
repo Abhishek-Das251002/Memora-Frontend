@@ -16,10 +16,6 @@ const SharedAlbums = () => {
     const [searchedData, setSearchedData] = useState([])
 
     useEffect(() => {
-        setSearchedData(sharedAlbumData)
-    },[sharedAlbumData])
-
-    useEffect(() => {
         let filteredAlbums = [...searchedData]
         
         if(sharedAlbumFilterValue === "recent"){

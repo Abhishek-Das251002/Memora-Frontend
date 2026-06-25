@@ -46,7 +46,10 @@ const ShareAlbum = ({albumToShare}) => {
         <div className="modal-body">
             <label><strong>Album:</strong></label> <span>{albumToShare?.name}</span><br />
             <label><strong>Add people by email:</strong></label><br />
-            <input type="text" className="form-control" placeholder="Enter email address and press Enter" value={currEmail} onChange={(e) => setCurrEmail(e.target.value)}  onKeyDown={(e) => {e.key === "Enter" && makePill(e.target.value)}} required/>
+            <div className="row"style={{width: "100%", margin: "0px"}}>
+                <input type="text" className="col-xl-9 col-md-9 col-8 py-1" placeholder="Enter email address and press Enter" style={{border: "1px solid #6c757d",borderTopLeftRadius: "5px", borderBottomLeftRadius: "5px", outline: "none"}} value={currEmail} onChange={(e) => setCurrEmail(e.target.value)}  onKeyDown={(e) => {e.key === "Enter" && makePill(e.target.value)}} required/>
+                <button className="col-xl-3 col-md-3 col-4" type="button" style={{background: "#3d61ff", color: "#fff",border: "1px solid #3d61ff", borderTopRightRadius: "5px", borderBottomRightRadius: "5px"}} onClick={() => makePill(currEmail)}>Add</button>
+            </div>
             <div className="d-flex flex-wrap">
                 {sharedUsers.map(mail => (
                     <span className="me-2 py-1 px-2 mt-3" style={{background: "#EEEEEE", borderRadius: "5px"}}>{mail}<XIcon size={15} className="ms-1" onClick={() => setSharedUsers(sharedUsers.filter(email => email !== mail))} style={{cursor: "pointer"}}/></span>

@@ -30,8 +30,12 @@ const ShareAlbum = ({albumToShare}) => {
                 setSharedUsers([])
             }
         } catch (error) {
-            console.error(error)
-            toast.error("Error occured while sharing album.")
+            if(error.response.status === 403){
+                toast.warn("Only Album Owners are allowed to share album.")
+            }else{
+                console.error(error)
+                toast.error("Error occured while sharing album.")
+            }
         }
     }
 

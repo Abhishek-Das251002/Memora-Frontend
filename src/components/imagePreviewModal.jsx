@@ -7,6 +7,7 @@ import { HeartIcon } from "lucide-react";
 import { Link2Icon } from "lucide-react";
 import { Download } from "lucide-react";
 import { MoreVertical } from "lucide-react";
+import { Bounce } from "react-toastify";
 
 const ImagePreview = ({id, index, focus, onSuccess, imageData}) => {
     const {data: allUsers} = useFetch(`${import.meta.env.VITE_API_URL}/user/googleLogins`)

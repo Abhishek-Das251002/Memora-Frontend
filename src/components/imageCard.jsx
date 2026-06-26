@@ -10,6 +10,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Link2Icon } from "lucide-react";
 import { Download } from "lucide-react";
+import { Bounce } from "react-toastify";
 
 const ImageCard = ({currImage, albumId, currIndex, setActiveIndex, onSuccess, focus, setCurrAlbumId}) => {
     const {data: allUsers} = useFetch(`${import.meta.env.VITE_API_URL}/user/googleLogins`)

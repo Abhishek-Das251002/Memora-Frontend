@@ -18,7 +18,7 @@ const Navbar = ({page, setSearchedData, data}) => {
 
     async function handleLogout(){
         try {
-            const logout = await axios.get(`${import.meta.env.VITE_API_URL}/auth/logout`, {withCredentials: true})
+            const logout = await axios.post(`${import.meta.env.VITE_API_URL}/auth/logout`, {withCredentials: true})
 
             if(logout){
                 navigate("/")

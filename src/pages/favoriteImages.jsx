@@ -20,7 +20,7 @@ const Favorites = () => {
     const [searchedData, setSearchedData] = useState([])
 
     useEffect(() => {
-        setSearchedData(allUserImages)
+        setSearchedData(favImages)
     },[allUserImages])
 
     useEffect(() => {

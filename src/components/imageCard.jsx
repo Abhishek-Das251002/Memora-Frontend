@@ -107,14 +107,14 @@ const ImageCard = ({currImage, albumId, currIndex, setActiveIndex, onSuccess, fo
                         <li className="dropdown-item" style={{cursor: "pointer"}} onClick={() => toggleFavorite()}><HeartIcon size={20} className="me-2"/><span>{isFav? "Mark Unfavorite" : "Mark Favorite"}</span></li>
                         <li className="dropdown-item"  style={{cursor: "pointer"}} data-bs-toggle="modal" data-bs-target="#exampleModalImgPreview" onClick={() => {setActiveIndex(currIndex); focus.current = true; setCurrAlbumId(albumId || currImage?.albumId)}}><BiComment size={20} className="me-2"/> Add comment</li>
                         <li className="dropdown-item"  style={{cursor: "pointer"}} onClick={() => {navigator.clipboard.writeText(currImage?.imageUrl); toast('Link copied', {
-                                position: "bottom-center",
+                                position: "top-center",
                                 autoClose: 1000,
                                 hideProgressBar: false,
                                 closeOnClick: false,
                                 pauseOnHover: false,
                                 draggable: false,
                                 progress: undefined,
-                                theme: "light",
+                                theme: "colored",
                                 transition: Bounce,
                         });}}><Link2Icon size={20} className="me-2"/>Copy link</li>
                         <li className="dropdown-item"  style={{cursor: "pointer"}} onClick={downloadImage}><Download size={20} className="me-2"/>Download image</li>

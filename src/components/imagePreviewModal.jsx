@@ -197,32 +197,42 @@ const ImagePreview = ({id, index, focus, onSuccess, imageData}) => {
                                 <div class="btn-group dropend">
                                 <MoreVertical size={15} className="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" style={{cursor: "pointer"}}/>
                                 <ul class="dropdown-menu ps-3" style={{minWidth: "200px"}}>
-                                    <li className="d-flex align-items-center"  style={{cursor: "pointer"}} onClick={() => navigator.clipboard.writeText(currImage?.imageUrl)}><Link2Icon size={20} className="me-2"/>Copy link</li>
+                                    <li className="d-flex align-items-center"  style={{cursor: "pointer"}} onClick={() => {navigator.clipboard.writeText(currImage?.imageUrl); toast('Link copied', {
+                                            position: "top-center",
+                                            autoClose: 1000,
+                                            hideProgressBar: false,
+                                            closeOnClick: false,
+                                            pauseOnHover: false,
+                                            draggable: false,
+                                            progress: undefined,
+                                            theme: "colored",
+                                            transition: Bounce,
+                                    })}} ><Link2Icon size={20} className="me-2"/>Copy link</li>
                                     <li className="d-flex align-items-center"  style={{cursor: "pointer"}} onClick={downloadImage}><Download size={20} className="me-2"/>Download image</li>
                                 </ul>
                                 </div>
                             </div>
                         </div>
                         <div className="my-3 row imgPreviewContent">
-                            <span className="col-4">Tags :</span>
-                            <span className="col-8">{currImage?.tags.map(tag => (
+                            <span className="col-5 col-lg-4">Tags :</span>
+                            <span className="col-7 col-lg-8">{currImage?.tags.map(tag => (
                                 <span className="rounded-pill px-2 py-1 text-secondary me-2" style={{background: "#EEEEEE"}}>{tag}</span>
                             ))}</span>
                         </div>
                         <div className="my-3 row imgPreviewContent">
-                            <span className="col-4">Uploaded by :</span>
-                            <div className="col-8">
+                            <span className="col-5 col-lg-4">Uploaded by :</span>
+                            <div className="col-7 col-lg-8">
                                 <span><img src={findUploadDetails(currImage)?.userPic} className="rounded-circle me-2" alt="uploader Pic" referrerPolicy="no-referrer" style={{height: "25px", width: "25px"}}/></span>
                                 <span>{findUploadDetails(currImage)?.name}</span>
                             </div>
                         </div>
                         <div className="my-3 row pe-0 imgPreviewContent">
-                            <span className="col-4">Uploaded On :</span>
-                            <span className="col-8">{new Date(currImage?.uploadedAt).toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric"})}</span>
+                            <span className="col-5 col-lg-4">Uploaded On :</span>
+                            <span className="col-7 col-lg-8">{new Date(currImage?.uploadedAt).toLocaleString('en-US', {year: "numeric", month: "long", day: "numeric", hour: "numeric", minute: "numeric"})}</span>
                         </div>
                         <div className="my-3 row imgPreviewContent">
-                            <span className="col-4">File Size :</span>
-                            <span className="col-8">{((currImage?.size)/1048576).toFixed(2)} MB</span>
+                            <span className="col-5 col-lg-4">File Size :</span>
+                            <span className="col-7 col-lg-8">{((currImage?.size)/1048576).toFixed(2)} MB</span>
                         </div>
                         <hr className="me-3"/>
                         <div className="pb-2">

@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import useFetch from "../utils/fetchDetails";
+import { toast } from "react-toastify";
+
 
 const NewAlbumModal = ({onSuccess}) => {
     const {data: userData} = useFetch(`${import.meta.env.VITE_API_URL}/user/details`)
@@ -18,7 +20,7 @@ const NewAlbumModal = ({onSuccess}) => {
 
     async function handleCreateAlbum(e){
         e.preventDefault();
-        
+
         try {
             const newAlbum = await axios.post(`${import.meta.env.VITE_API_URL}/user/albums`, {name: albumInfo.albumName, description: albumInfo.albumDes, ownerId: userData._id}, {
                 withCredentials: true
@@ -26,8 +28,9 @@ const NewAlbumModal = ({onSuccess}) => {
 
             if(newAlbum){
                 onSuccess()
+                toast.success("Album Created Successfully.")
+                setAlbumInfo({albumName: "", albumDes: ""})
             }
-
         } catch (error) {
             console.error(error)
         }

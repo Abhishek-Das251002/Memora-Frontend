@@ -16,7 +16,9 @@ const NewAlbumModal = ({onSuccess}) => {
         setAlbumInfo(prev => ({...prev, [name]: value}))
     }
 
-    async function handleCreateAlbum(){
+    async function handleCreateAlbum(e){
+        e.preventDefault();
+        
         try {
             const newAlbum = await axios.post(`${import.meta.env.VITE_API_URL}/user/albums`, {name: albumInfo.albumName, description: albumInfo.albumDes, ownerId: userData._id}, {
                 withCredentials: true

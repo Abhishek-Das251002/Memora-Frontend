@@ -49,13 +49,17 @@ Built with a React frontend, Express/Node backend, MongoDB database, and Cloudin
 
 ![Home](./screenshots/home.png)
 
+### Album Details
+
+![Album Details](./screenshots/album-details.png)
+
 ### Upload Images
 
 ![Upload](./screenshots/upload.png)
 
-### Albums
+### Favorite Images
 
-![Albums](./screenshots/albums.png)
+![Favorite Images](./screenshots/favorites.png)
 
 ### Shared Albums
 
